@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>demo page</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#demo").click(function(){
+                console.info('click!')
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/demo/' ,
+                    success: function(data){
+                        console.info(data)
+                        $("#display").html(data[1]+data[2])
+                    } ,
+                    dataType: 'json'
+                });
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+<button id="demo" type="button">Click Me!</button>
+<p id="display">This will be ret</p>
+
+</body>
+
+</html>
